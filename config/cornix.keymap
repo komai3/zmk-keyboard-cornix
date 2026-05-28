@@ -250,6 +250,7 @@
         };
 
         Miro_layer {
+            display-name = "Miro";
             bindings = <
 &kp ESC        &kp LS(LC(L))  &kp PAGE_UP    &kp E      &kp LC(Z)        &kp P                         &trans  &trans  &trans  &trans  &trans  &trans
 &kp BACKSPACE  &kp G          &kp PAGE_DOWN  &kp N      &kp KP_NUMBER_3  &kp V                         &trans  &trans  &trans  &trans  &trans  &trans
@@ -261,6 +262,7 @@
         };
 
         Procreate_layer {
+            display-name = "Prcr";
             bindings = <
 &kp ESC    &kp LG(N0)  &kp E      &kp LALT           &kp LG(Z)     &kp L                     &trans  &trans  &trans  &trans  &trans  &trans
 &kp SPACE  &kp LG(B)   &kp LG(D)  &kp S              &kp LG(SEMI)  &kp B                     &trans  &trans  &trans  &trans  &trans  &trans
