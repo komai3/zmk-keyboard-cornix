@@ -6,9 +6,6 @@
 
 #include "zmk-helpers/helper.h"
 #include "includes/cornix54.h"
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/keys.h>
 
 // tap windows for ctl alt and gui
 
@@ -40,6 +37,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
 / {
@@ -193,11 +191,12 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp ESC  &kp Q          &kp W         &kp E         &kp R                &kp T                      &kp Y      &kp U                &kp I            &kp O             &kp P             &kp BSLH
-&kp TAB  &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_shift_l LSHFT F  &kp G                      &kp H      &hm_shift_r RSHFT J  &hm_r RGUI K     &hm_r RALT L      &hm_r RCTRL SEMI  &kp SQT
-&mo 4    &hm_l LGUI Z   &kp X         &kp C         &kp V                &kp B        &none  &none  &kp N      &kp M                &kp COMMA        &kp DOT           &kp FSLH          &kp BACKSPACE
-&none    &none          &none         &lt 6 ESCAPE  &mo 2                &lt 5 SPACE                &kp ENTER  &mo 3                &lt 2 BACKSPACE  &kp BACKSPACE     &none             &none
+&kp ESC         &kp Q         &kp W         &kp E      &kp R  &kp T                          &kp Y      &kp U          &kp I      &kp O           &kp P         &kp MINUS
+&kp TAB         &kp A         &kp S         &kp D      &kp F  &kp G                          &kp H      &kp J          &kp K      &kp L           &kp FSLH      &kp ENTER
+&kp LEFT_SHIFT  &kp Z         &kp X         &kp C      &kp V  &kp B        &none  &mkp RCLK  &kp N      &kp M          &kp COMMA  &kp DOT         &kp UP_ARROW  &kp DEL
+&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp LANG2  &mo 2  &lt 1 SPACE                    &kp ENTER  &kp BACKSPACE  &kp LANG1  &kp LEFT_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW
             >;
+
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
@@ -212,11 +211,12 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&trans    &trans         &trans        &trans         &trans               &trans                  &trans  &trans               &trans         &trans        &trans            &trans
-&trans    &hm_l LCTRL A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &trans                  &trans  &hm_shift_r RSHFT J  &hm_r RCTRL K  &hm_r RALT L  &hm_r RCTRL SEMI  &trans
-&kp LGUI  &trans         &trans        &trans         &trans               &trans  &trans  &trans  &trans  &trans               &trans         &trans        &trans            &trans
-&none     &none          &none         &trans         &trans               &trans                  &trans  &trans               &trans         &none         &none             &none
+&kp GRAVE  &kp N1     &kp N2     &kp N3     &kp N4        &kp N5                          &kp N6    &kp N7    &kp N8     &kp N9            &kp N0         &kp TILDE
+&trans     &kp LC(J)  &kp LC(K)  &kp LC(L)  &kp LC(SEMI)  &kp LC(SQT)                     &kp LPAR  &kp LBKT  &kp EQUAL  &kp BSLH          &kp UNDER      &kp LS(N1)
+&trans     &kp F6     &kp F7     &kp F8     &kp F9        &kp F10      &trans  &mkp RCLK  &kp RPAR  &kp RBKT  &kp SEMI   &kp SINGLE_QUOTE  &kp PG_UP      &kp LS(FSLH)
+&trans     &trans     &trans     &trans     &trans        &trans                          &trans    &kp DEL   &trans     &kp HOME          &kp PAGE_DOWN  &kp END
             >;
+
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
@@ -232,11 +232,12 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&none  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                  &kp CARET  &kp AMPS      &kp ASTRK  &kp LPAR   &kp RPAR  &kp PIPE
-&none  &none     &kp LBKT  &kp RBKT  &kp LBRC  &kp RBRC                   &kp EQUAL  &kp UNDER     &kp MINUS  &kp PLUS   &kp DQT   &kp SQT
-&none  &none     &kp RBKT  &kp RPAR  &kp PIPE  &kp BSLH   &trans  &trans  &kp FSLH   &kp QUESTION  &kp GRAVE  &kp TILDE  &kp SQT   &none
-&none  &none     &none     &none     &trans    &trans                     &kp TILDE  &trans        &kp GRAVE  &none      &none     &none
+&out OUT_TOG  &kp F1   &kp F2   &kp F3        &kp F4        &kp F5                                        &kp HASH  &kp KP_SLASH     &kp KP_PLUS   &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9
+&none         &kp F6   &kp F7   &kp F8        &kp F9        &kp F10                                       &kp AMPS  &kp KP_ASTERISK  &kp KP_MINUS  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6
+&none         &kp F11  &kp F12  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_CLR_ALL  &kp KP_NUMLOCK  &kp AT    &kp PRCNT        &kp UNDER     &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3
+&none         &none    &none    &to 3         &trans        &bt BT_CLR                                    &to 4     &to 6            &to 8         &kp KP_NUMBER_0  &kp KP_DOT       &kp KP_ENTER
             >;
+
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
@@ -251,11 +252,12 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3   &kp F4  &kp F5                         &kp F6    &kp F7     &kp F8     &kp F9    &kp F10  &kp F11
-&trans  &kp N5  &kp N4  &kp N3   &kp N2  &kp N1                         &kp BSPC  &kp MINUS  &kp EQUAL  &kp PLUS  &kp DQT  &kp F12
-&trans  &kp N6  &kp N7  &kp N8   &kp N9  &kp N0         &trans  &trans  &kp TAB   &kp INS    &kp HOME   &kp END   &trans   &trans
-&none   &none   &none   &kp TAB  &trans  &kp BACKSPACE                  &trans    &trans     &kp N3     &none     &none    &none
+&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                         &kp F6    &kp F7     &kp F8     &kp F9    &kp F10  &kp F11
+&trans  &kp N5  &kp N4  &kp N3  &kp N2  &kp N1                         &kp BSPC  &kp MINUS  &kp EQUAL  &kp PLUS  &kp DQT  &kp F12
+&trans  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0         &trans  &trans  &kp TAB   &kp INS    &kp HOME   &kp END   &trans   &trans
+&none   &none   &none   &to 0   &trans  &kp BACKSPACE                  &trans    &trans     &kp N3     &none     &none    &none
             >;
+
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
@@ -312,6 +314,24 @@
 &none       &none         &none         &none         &none         &none                         &none        &none  &none   &none  &none  &none
 &none       &none         &none         &none         &none         &bootloader   &trans  &trans  &bootloader  &none  &none   &none  &none  &none
 &none       &none         &none         &none         &none         &none                         &none        &none  &kp N7  &none  &none  &none
+            >;
+        };
+
+        layer_8 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        layer_9 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
