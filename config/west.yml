@@ -15,8 +15,11 @@ manifest:
     - name: janpfischer
       url-base: https://github.com/janpfischer
       
-    - name: carrefinho
-      url-base: https://github.com/carrefinho
+    #- name: carrefinho
+    #  url-base: https://github.com/carrefinho
+
+    - name: myprospector
+      url-base: https://github.com/komai3
       
   projects:
     - name: zmk
@@ -46,9 +49,15 @@ manifest:
     #  revision: main
     #  clone-depth: 1
 
+    #- name: prospector-zmk-module
+    #  remote: carrefinho
+    #  revision: feat/new-status-screens
+    #  clone-depth: 1
+
     - name: prospector-zmk-module
-      remote: carrefinho
-      revision: feat/new-status-screens
+      remote: myprospector
+      revision: cornix-custom-classic
       clone-depth: 1
+      
   self:
     path: config
