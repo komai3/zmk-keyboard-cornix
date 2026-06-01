@@ -27,16 +27,16 @@ include:
   #   snippet: studio-rpc-usb-uart
   #   artifact-name: cornix_dongle_zds_nano
   
-  # YADSをcentralにするCornix用ドングルファームウェア
+  # YADS(prospector)をcentralにするCornix用ドングルファームウェア
   - board: xiao_ble//zmk
     shield: cornix_dongle_adapter dongle_screen
     snippet: studio-rpc-usb-uart
     artifact-name: cornix_yads_dongle
 
-  # YADSのペアリング情報リセット用
+  # prospectorのペアリング情報リセット用
   - board: xiao_ble//zmk
     shield: settings_reset
-    artifact-name: yads_reset
+    artifact-name: prospector_reset
     
   # 通常構成へ戻す場合のCornix左手用
   - board: cornix_left
