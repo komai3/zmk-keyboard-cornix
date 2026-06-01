@@ -6,8 +6,8 @@ manifest:
     - name: hitsmaxft
       url-base: https://github.com/hitsmaxft
       
-    - name: englmaxi
-      url-base: https://github.com/englmaxi
+    #- name: englmaxi
+    #  url-base: https://github.com/englmaxi
       
     - name: urob
       url-base: https://github.com/urob
@@ -18,8 +18,8 @@ manifest:
     #- name: carrefinho
     #  url-base: https://github.com/carrefinho
 
-    - name: myprospector
-      url-base: https://github.com/komai3
+    #- name: myprospector
+    #  url-base: https://github.com/komai3
       
   projects:
     - name: zmk
@@ -34,30 +34,30 @@ manifest:
       revision: main
       clone-depth: 1
       
-    #- name: zmk-rgbled-widget
-    #  remote: hitsmaxft
-    #  revision: main
-    #  clone-depth: 1
-    
-    - name: zmk-dongle-display
-      remote: englmaxi
+    - name: zmk-rgbled-widget
+      remote: hitsmaxft
       revision: main
       clone-depth: 1
-      
-    #- name: zmk-dongle-screen
-    #  remote: janpfischer
+    
+    #- name: zmk-dongle-display
+    #  remote: englmaxi
     #  revision: main
     #  clone-depth: 1
+      
+    - name: zmk-dongle-screen
+      remote: janpfischer
+      revision: main
+      clone-depth: 1
 
     #- name: prospector-zmk-module
     #  remote: carrefinho
     #  revision: feat/new-status-screens
     #  clone-depth: 1
 
-    - name: prospector-zmk-module
-      remote: myprospector
-      revision: cornix-custom-classic
-      clone-depth: 1
+    #- name: prospector-zmk-module
+    #  remote: myprospector
+    #  revision: cornix-custom-classic
+    #  clone-depth: 1
       
   self:
     path: config
