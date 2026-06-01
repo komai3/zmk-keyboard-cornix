@@ -33,27 +33,32 @@ manifest:
       remote: urob
       revision: main
       clone-depth: 1
-      
-    - name: zmk-rgbled-widget
-      remote: hitsmaxft
-      revision: main
-      clone-depth: 1
-    
+
+    # cornixのRBG LED（まだ未対応）
+    #- name: zmk-rgbled-widget
+    #  remote: hitsmaxft
+    #  revision: main
+    #  clone-depth: 1
+
+    # Dongle Display運用の場合
     #- name: zmk-dongle-display
     #  remote: englmaxi
     #  revision: main
     #  clone-depth: 1
-      
+    #
+    # YADS運用の場合  
     - name: zmk-dongle-screen
       remote: janpfischer
-      revision: main
+      revision: upgrade-4.1
       clone-depth: 1
-
+    #
+    # Prospector運用の場合
     #- name: prospector-zmk-module
     #  remote: carrefinho
     #  revision: feat/new-status-screens
     #  clone-depth: 1
-
+    #
+    # prospector運用（ローカル版）の場合
     #- name: prospector-zmk-module
     #  remote: myprospector
     #  revision: cornix-custom-classic
