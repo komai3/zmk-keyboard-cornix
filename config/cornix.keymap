@@ -105,6 +105,22 @@
         };
     };
 
+    macros {
+        ctrl_z: ctrl_z {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(Z)>;
+            label = "CTRL_Z";
+        };
+
+        win_z: win_z {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(Z)>;
+            label = "WIN_Z";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -200,7 +216,7 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&kp GRAVE  &kp J   &kp G          &kp E      &kp LC(Z)            &kp P                                 &kp LPAR        &kp KP_SLASH     &kp KP_PLUS   &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9
+&kp GRAVE  &kp J   &kp G          &kp E      &ctrl_z              &kp P                                 &kp LPAR        &kp KP_SLASH     &kp KP_PLUS   &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9
 &mo 5      &kp W   &kp LC(D)      &kp M      &kp F4               &kp LC(S)                             &kp RPAR        &kp KP_ASTERISK  &kp KP_MINUS  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6
 &kp LC(B)  &kp F5  &kp LC(LS(D))  &kp DEL    &kp LSHIFT           &kp LS(LC(F))  &to 0  &kp KP_NUMLOCK  &kp LEFT_ARROW  &kp RIGHT_ARROW  &kp UNDER     &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3
 &kp O      &kp D   &kp LS(LC(I))  &kp SPACE  &kp LC(KP_NUMBER_0)  &kp Z                                 &to 0           &to 9            &none         &kp KP_NUMBER_0  &kp KP_DOT       &kp KP_ENTER
@@ -222,7 +238,7 @@
         ClipStudio2_layer {
             display-name = "CS-Gui";
             bindings = <
-&kp CAPS   &kp J   &kp G          &kp E      &kp LG(Z)            &kp P                                 &kp KP_N7        &kp KP_N8        &kp KP_N9  &kp KP_MINUS  &kp KP_MULTIPLY  &none
+&kp CAPS   &kp J   &kp G          &kp E      &win_z               &kp P                                 &kp KP_N7        &kp KP_N8        &kp KP_N9  &kp KP_MINUS  &kp KP_MULTIPLY  &none
 &mo 7      &kp W   &kp LG(D)      &kp M      &kp F4               &kp LG(S)                             &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_N6  &kp KP_PLUS   &kp KP_DIVIDE    &none
 &kp LG(B)  &kp F5  &kp LG(LS(D))  &kp DEL    &kp LSHIFT           &kp LS(LG(F))  &to 0  &kp KP_NUMLOCK  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_N3  &none         &none            &none
 &kp O      &kp D   &kp LS(LG(I))  &kp SPACE  &kp LG(KP_NUMBER_0)  &kp Z                                 &to 0            &to 9            &none      &none         &none            &none
@@ -252,7 +268,7 @@
         Miro_layer {
             display-name = "Miro";
             bindings = <
-&kp ESC        &kp LS(LC(L))  &kp PAGE_UP    &kp E      &kp LC(Z)        &kp P                         &trans  &trans  &trans  &trans  &trans  &trans
+&kp ESC        &kp LS(LC(L))  &kp PAGE_UP    &kp E      &ctrl_z          &kp P                         &trans  &trans  &trans  &trans  &trans  &trans
 &kp BACKSPACE  &kp G          &kp PAGE_DOWN  &kp N      &kp KP_NUMBER_3  &kp V                         &trans  &trans  &trans  &trans  &trans  &trans
 &kp LSHIFT     &kp LC(X)      &kp LC(V)      &kp LC(C)  &kp LC(D)        &kp LS(LC(F))  &to 0  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &kp LCTRL      &kp LWIN       &kp LALT       &kp TAB    &kp SPACE        &mkp RCLK                     &to 0   &trans  &trans  &trans  &trans  &trans
@@ -264,7 +280,7 @@
         Procreate_layer {
             display-name = "Prcr";
             bindings = <
-&kp ESC    &kp LG(N0)  &kp E      &kp LALT           &kp LG(Z)     &kp L                     &trans  &trans  &trans  &trans  &trans  &trans
+&kp ESC    &kp LG(N0)  &kp E      &kp LALT           &win_z        &kp L                     &trans  &trans  &trans  &trans  &trans  &trans
 &kp SPACE  &kp LG(B)   &kp LG(D)  &kp S              &kp LG(SEMI)  &kp B                     &trans  &trans  &trans  &trans  &trans  &trans
 &kp LG(X)  &kp LG(U)   &kp V      &kp LG(BACKSPACE)  &kp C         &kp X      &to 0  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &kp LG(V)  &kp LG(C)   &kp LG(J)  &kp LSHIFT         &kp LEFT_WIN  &kp ENTER                 &to 0   &trans  &trans  &trans  &trans  &trans
