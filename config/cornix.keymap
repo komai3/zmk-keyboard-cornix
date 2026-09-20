@@ -105,6 +105,22 @@
         };
     };
 
+    macros {
+        ctrl_z: ctrl_z {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(Z)>;
+            label = "CTRL_Z";
+        };
+
+        win_z: win_z {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(Z)>;
+            label = "WIN_Z";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -120,8 +136,8 @@
 
             bindings = <
 &kp ESC         &kp Q         &kp W         &kp E             &kp R  &kp T                          &kp Y      &kp U          &kp I      &kp O           &kp P           &kp MINUS
-&kp TAB         &kp A         &kp S         &kp D             &kp F  &kp G                          &kp H      &kp J          &kp K      &kp L           &kp FSLH        &kp ENTER
-&kp LEFT_SHIFT  &kp Z         &kp X         &kp C             &kp V  &kp B        &none  &mkp RCLK  &kp N      &kp M          &kp COMMA  &kp DOT         &kp UP_ARROW    &kp DEL
+&kp TAB         &kp A         &kp S         &kp D             &kp F  &kp G                          &kp H      &kp J          &kp K      &kp L           &kp FSLH        &kp LEFT_BRACKET
+&kp LEFT_SHIFT  &kp Z         &kp X         &kp C             &kp V  &kp B        &none  &mkp RCLK  &kp N      &kp M          &kp COMMA  &kp DOT         &kp UP_ARROW    &kp RIGHT_BRACKET
 &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 3 LANGUAGE_2  &mo 2  &lt 1 SPACE                    &kp ENTER  &kp BACKSPACE  &kp LANG1  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
             >;
 
@@ -139,10 +155,10 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp GRAVE  &kp N1     &kp N2     &kp N3     &kp N4        &kp N5                          &kp N6    &kp N7    &kp N8     &kp N9            &kp N0         &kp TILDE
-&trans     &kp LC(J)  &kp LC(K)  &kp LC(L)  &kp LC(SEMI)  &kp LC(SQT)                     &kp LPAR  &kp LBKT  &kp EQUAL  &kp BSLH          &kp UNDER      &kp LS(N1)
-&trans     &kp F6     &kp F7     &kp F8     &kp F9        &kp F10      &trans  &mkp RCLK  &kp RPAR  &kp RBKT  &kp SEMI   &kp SINGLE_QUOTE  &kp PG_UP      &kp LS(FSLH)
-&trans     &trans     &trans     &trans     &trans        &trans                          &trans    &kp DEL   &trans     &kp HOME          &kp PAGE_DOWN  &kp END
+&kp GRAVE  &kp N1     &kp N2     &kp N3     &kp N4        &kp N5                          &kp N6     &kp N7    &kp N8     &kp N9            &kp N0         &kp TILDE
+&trans     &kp LC(J)  &kp LC(K)  &kp LC(L)  &kp LC(SEMI)  &kp LC(SQT)                     &kp QMARK  &kp EXCL  &kp EQUAL  &kp BSLH          &kp UNDER      &kp LPAR
+&trans     &kp F6     &kp F7     &kp F8     &kp F9        &kp F10      &trans  &mkp RCLK  &kp COLON  &kp SEMI  &kp DQT    &kp SINGLE_QUOTE  &kp PG_UP      &kp RPAR
+&trans     &trans     &trans     &trans     &trans        &kp SPACE                       &trans     &kp DEL   &trans     &kp HOME          &kp PAGE_DOWN  &kp END
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -162,7 +178,7 @@
             bindings = <
 &kp ESC  &kp F1   &kp F2   &kp F3  &kp F4  &kp F5                          &kp HASH  &kp KP_SLASH     &kp KP_PLUS   &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9
 &trans   &kp F6   &kp F7   &kp F8  &kp F9  &kp F10                         &kp AMPS  &kp KP_ASTERISK  &kp KP_MINUS  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6
-&trans   &kp F11  &kp F12  &trans  &trans  &trans   &none  &kp KP_NUMLOCK  &kp AT    &kp PRCNT        &kp UNDER     &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3
+&trans   &kp F11  &kp F12  &none   &none   &none    &none  &kp KP_NUMLOCK  &kp AT    &kp PRCNT        &kp UNDER     &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3
 &trans   &trans   &trans   &trans  &trans  &trans                          &to 4     &to 6            &to 8         &kp KP_NUMBER_0  &kp KP_DOT       &kp KP_ENTER
             >;
 
@@ -200,10 +216,10 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&kp GRAVE  &kp J   &kp G          &kp E      &kp LC(Z)            &kp P                                 &kp LPAR        &kp KP_SLASH     &kp KP_PLUS   &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9
-&mo 5      &kp W   &kp LC(D)      &kp M      &kp F4               &kp LC(S)                             &kp RPAR        &kp KP_ASTERISK  &kp KP_MINUS  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6
-&kp LC(B)  &kp F5  &kp LC(LS(D))  &kp DEL    &kp LSHIFT           &kp LS(LC(F))  &to 0  &kp KP_NUMLOCK  &kp LEFT_ARROW  &kp RIGHT_ARROW  &kp UNDER     &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3
-&kp O      &kp D   &kp LS(LC(I))  &kp SPACE  &kp LC(KP_NUMBER_0)  &kp Z                                 &to 0           &to 9            &none         &kp KP_NUMBER_0  &kp KP_DOT       &kp KP_ENTER
+&kp GRAVE  &kp J   &kp G          &kp E      &ctrl_z                    &kp P                                &kp LPAR        &kp KP_SLASH     &kp KP_PLUS   &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9
+&mo 5      &kp W   &kp LC(D)      &kp M      &kp F4                     &kp C                                &kp RPAR        &kp KP_ASTERISK  &kp KP_MINUS  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6
+&kp LC(B)  &kp F5  &kp LC(LS(D))  &kp DEL    &kp LSHIFT                 &kp LEFT_ALT  &to 0  &kp KP_NUMLOCK  &kp LEFT_ARROW  &kp RIGHT_ARROW  &kp UNDER     &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3
+&kp O      &kp D   &kp LS(LC(I))  &kp SPACE  &mt RCTRL LC(KP_NUMBER_0)  &kp Z                                &to 0           &to 9            &none         &kp KP_NUMBER_0  &kp KP_DOT       &kp KP_ENTER
             >;
 
             sensor-bindings = <&inc_dec_kp LC(KP_NUMBER_3) LC(KP_NUMBER_9)>;
@@ -212,20 +228,20 @@
         ClipStudio1-2_layer {
             display-name = "CS-Ctrl2";
             bindings = <
-&kp ESC  &kp LC(N6)  &kp LS(LC(T))  &kp LC(N7)  &kp LC(N5)        &kp LC(N3)                       &none  &none  &none  &none  &none  &none
-&trans   &kp C       &kp U          &kp LS(Q)   &kp LS(I)         &kp B                            &none  &none  &none  &none  &none  &none
-&none    &kp F3      &kp T          &kp LC(E)   &kp K             &kp ENTER        &trans  &trans  &none  &none  &none  &none  &none  &none
-&none    &none       &none          &kp Q       &kp LC(KP_MINUS)  &kp LC(KP_PLUS)                  &none  &none  &none  &none  &none  &none
+&kp ESC  &kp LC(S)  &kp LS(LC(T))  &kp LC(N7)        &kp LC(N5)  &kp LC(N3)                  &none  &none  &none  &none  &none  &none
+&trans   &kp Q      &kp U          &kp LS(Q)         &kp LS(I)   &kp X                       &none  &none  &none  &none  &none  &none
+&none    &none      &kp LC(E)      &kp LC(NUMBER_6)  &kp F3      &kp B       &trans  &trans  &none  &none  &none  &none  &none  &none
+&none    &kp T      &kp K          &kp LS(LC(F))     &kp Y       &kp ENTER                   &none  &none  &none  &none  &none  &none
             >;
         };
 
         ClipStudio2_layer {
             display-name = "CS-Gui";
             bindings = <
-&kp CAPS   &kp J   &kp G          &kp E      &kp LG(Z)            &kp P                                 &kp KP_N7        &kp KP_N8        &kp KP_N9  &kp KP_MINUS  &kp KP_MULTIPLY  &none
-&mo 7      &kp W   &kp LG(D)      &kp M      &kp F4               &kp LG(S)                             &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_N6  &kp KP_PLUS   &kp KP_DIVIDE    &none
-&kp LG(B)  &kp F5  &kp LG(LS(D))  &kp DEL    &kp LSHIFT           &kp LS(LG(F))  &to 0  &kp KP_NUMLOCK  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_N3  &none         &none            &none
-&kp O      &kp D   &kp LS(LG(I))  &kp SPACE  &kp LG(KP_NUMBER_0)  &kp Z                                 &to 0            &to 9            &none      &none         &none            &none
+&kp CAPS   &kp J   &kp G          &kp E      &win_z                        &kp P                                &kp KP_N7        &kp KP_N8        &kp KP_N9  &kp KP_MINUS  &kp KP_MULTIPLY  &none
+&mo 7      &kp W   &kp LG(D)      &kp M      &kp F4                        &kp C                                &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_N6  &kp KP_PLUS   &kp KP_DIVIDE    &none
+&kp LG(B)  &kp F5  &kp LG(LS(D))  &kp DEL    &kp LSHIFT                    &kp LEFT_ALT  &to 0  &kp KP_NUMLOCK  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_N3  &none         &none            &none
+&kp O      &kp D   &kp LS(LG(I))  &kp SPACE  &mt LEFT_GUI LG(KP_NUMBER_0)  &kp Z                                &to 0            &to 9            &none      &none         &none            &none
             >;
 
             sensor-bindings = <&inc_dec_kp LG(KP_NUMBER_3) LG(KP_NUMBER_9)>;
@@ -242,17 +258,17 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&kp ESC  &kp LG(N6)  &kp LS(LG(T))  &kp LG(N7)  &kp LG(N5)        &kp LG(N3)                       &none        &none  &none  &none  &none  &none
-&trans   &kp C       &kp U          &kp LS(Q)   &kp LS(I)         &kp B                            &none        &none  &none  &none  &none  &none
-&none    &kp F3      &kp T          &kp LG(E)   &kp K             &kp ENTER        &trans  &trans  &bootloader  &none  &none  &none  &none  &none
-&none    &none       &none          &kp Q       &kp LG(KP_MINUS)  &kp LG(KP_PLUS)                  &none        &none  &none  &none  &none  &none
+&kp ESC  &kp LG(S)  &kp LS(LG(T))  &kp LG(N7)        &kp LG(N5)  &kp LG(N3)                  &none        &none  &none  &none  &none  &none
+&trans   &kp Q      &kp U          &kp LS(Q)         &kp LS(I)   &kp X                       &none        &none  &none  &none  &none  &none
+&none    &none      &kp LG(E)      &kp LG(NUMBER_6)  &kp F3      &kp B       &trans  &trans  &bootloader  &none  &none  &none  &none  &none
+&none    &kp T      &kp K          &kp LS(LG(F))     &kp Y       &kp ENTER                   &none        &none  &none  &none  &none  &none
             >;
         };
 
         Miro_layer {
             display-name = "Miro";
             bindings = <
-&kp ESC        &kp LS(LC(L))  &kp PAGE_UP    &kp E      &kp LC(Z)        &kp P                         &trans  &trans  &trans  &trans  &trans  &trans
+&kp ESC        &kp LS(LC(L))  &kp PAGE_UP    &kp E      &ctrl_z          &kp P                         &trans  &trans  &trans  &trans  &trans  &trans
 &kp BACKSPACE  &kp G          &kp PAGE_DOWN  &kp N      &kp KP_NUMBER_3  &kp V                         &trans  &trans  &trans  &trans  &trans  &trans
 &kp LSHIFT     &kp LC(X)      &kp LC(V)      &kp LC(C)  &kp LC(D)        &kp LS(LC(F))  &to 0  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &kp LCTRL      &kp LWIN       &kp LALT       &kp TAB    &kp SPACE        &mkp RCLK                     &to 0   &trans  &trans  &trans  &trans  &trans
@@ -264,7 +280,7 @@
         Procreate_layer {
             display-name = "Prcr";
             bindings = <
-&kp ESC    &kp LG(N0)  &kp E      &kp LALT           &kp LG(Z)     &kp L                     &trans  &trans  &trans  &trans  &trans  &trans
+&kp ESC    &kp LG(N0)  &kp E      &kp LALT           &win_z        &kp L                     &trans  &trans  &trans  &trans  &trans  &trans
 &kp SPACE  &kp LG(B)   &kp LG(D)  &kp S              &kp LG(SEMI)  &kp B                     &trans  &trans  &trans  &trans  &trans  &trans
 &kp LG(X)  &kp LG(U)   &kp V      &kp LG(BACKSPACE)  &kp C         &kp X      &to 0  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &kp LG(V)  &kp LG(C)   &kp LG(J)  &kp LSHIFT         &kp LEFT_WIN  &kp ENTER                 &to 0   &trans  &trans  &trans  &trans  &trans
