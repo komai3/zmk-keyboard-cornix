@@ -23,34 +23,55 @@ manifest:
       remote: urob
       revision: main
       clone-depth: 1
+    # cornixのRBG LED（まだ未対応）
     #- name: zmk-rgbled-widget
     #  remote: hitsmaxft
     #  revision: main
     #  clone-depth: 1
-    - name: zmk-dongle-display
-      remote: englmaxi
-      revision: main
-      clone-depth: 1
+    #
+    # Dongle Display運用の場合
+    #- name: zmk-dongle-display
+    #  remote: englmaxi
+    #  revision: main
+    #  clone-depth: 1
     # DYA Studio extensions. ZMK Studio remains enabled as the shared RPC transport.
     - name: zmk-module-ble-management
       remote: cormoran
       revision: main
       clone-depth: 1
+    #
     - name: zmk-module-battery-history
       remote: cormoran
       revision: main
       clone-depth: 1
+    #
     - name: zmk-module-settings-rpc
       remote: cormoran
       revision: main
       clone-depth: 1
+    #
     - name: zmk-module-runtime-input-processor
       remote: cormoran
       revision: main
       clone-depth: 1
-    #- name: zmk-dongle-screen
-    #  remote: janpfischer
-    #  revision: main
+    #
+    # YADS運用の場合 
+    - name: zmk-dongle-screen
+      remote: janpfischer
+      revision: upgrade-4.1
+      clone-depth: 1
+    #
+    # Prospector運用の場合
+    #- name: prospector-zmk-module
+    #  remote: carrefinho
+    #  revision: feat/new-status-screens
     #  clone-depth: 1
+    #
+    # prospector運用（ローカル版）の場合
+    #- name: prospector-zmk-module
+    #  remote: myprospector
+    #  revision: cornix-custom-classic
+    #  clone-depth: 1
+    
   self:
     path: config
